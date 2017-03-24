@@ -33,6 +33,16 @@ sstc/rsync \
 -avzz -e "ssh -p${PORT}" /app/ ${USER}@${HOST}:${REMOTE_PATH}/
 ```
 
+## Q&A
+
+###### Bad owner or permissions on /root/.ssh/config
+
+due to `https://github.com/docker/docker/issues/2259` we can:
+
+1. `ssh -F /dev/null` force not read the config.
+2. or `-v /root/.ssh:/root/.ssh` always root! (Not recommanded.)
+3. or rm `~/.ssh/config` file (Not recommanded.)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/).
