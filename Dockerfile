@@ -1,7 +1,7 @@
-FROM alpine:3.5
+FROM alpine:3.12
 
 RUN apk add --no-cache \
-    rsync \
-    openssh-client
+	rsync \
+	openssh-client
 
 ENTRYPOINT ["rsync"]

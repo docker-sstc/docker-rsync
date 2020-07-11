@@ -2,11 +2,25 @@
 
 ## Usage
 
-- Help: `docker run --rm sstc/rsync`
-- Version: `docker run --rm sstc/rsync --version`
-- which: `docker run --rm --entrypoint=which sstc/rsync rsync`
+> Help
 
-- sync local to local
+```sh
+docker run --rm sstc/rsync
+```
+
+> Version
+
+```sh
+docker run --rm sstc/rsync --version
+```
+
+> Change entrypint
+
+```sh
+docker run --rm --entrypoint=which sstc/rsync rsync
+```
+
+> Sync local to local
 
 ```sh
 LOCAL_PATH=/from/path
@@ -18,7 +32,7 @@ sstc/rsync \
 -av /app/ /app_dist/
 ```
 
-- sync local to remote
+> Sync local to remote
 
 ```sh
 LOCAL_PATH=/from/path
@@ -35,16 +49,14 @@ sstc/rsync \
 
 ## Q&A
 
-###### Bad owner or permissions on /root/.ssh/config
+### Bad owner or permissions on /root/.ssh/config
 
-due to `https://github.com/docker/docker/issues/2259` we can:
+Due to `https://github.com/docker/docker/issues/2259` we can:
 
-1. `ssh -F /dev/null` force not read the config.
-2. or `-v /root/.ssh:/root/.ssh` always root! (Not recommanded.)
-3. or rm `~/.ssh/config` file (Not recommanded.)
+1. `-e "ssh -F /dev/null"` to force rsync not read the config.
+2. or `-v /root/.ssh:/root/.ssh` mount root config instead!
+3. or `-v ~/.ssh/id_rsa:/root/id_rsa` only mount the key file.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/).
-
-[alpine]:https://hub.docker.com/_/alpine/
+[MIT](https://choosealicense.com/licenses/mit/)
