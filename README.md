@@ -44,7 +44,7 @@ docker run --rm \
 -v ${LOCAL_PATH}:/app \
 -v ~/.ssh:/root/.ssh \
 sstc/rsync \
--avzz -e "ssh -p${PORT}" /app/ ${USER}@${HOST}:${REMOTE_PATH}/
+-avz -e "ssh -p${PORT}" /app/ ${USER}@${HOST}:${REMOTE_PATH}/
 ```
 
 ## Q&A
