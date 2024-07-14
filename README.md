@@ -1,5 +1,8 @@
 # docker-rsync
 
+[![Build workflow](https://github.com/docker-sstc/docker-rsync/actions/workflows/main.yml/badge.svg)](https://github.com/docker-sstc/docker-rsync/actions)
+[![Docker pulls](https://img.shields.io/docker/pulls/sstc/rsync.svg)](https://hub.docker.com/r/sstc/rsync)
+
 ## Usage
 
 > Help
